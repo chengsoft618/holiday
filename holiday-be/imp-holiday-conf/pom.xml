@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>imp-holiday-be</artifactId>
+        <groupId>com.yonyou.ucf</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>imp-holiday-conf</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.yonyou</groupId>
+            <artifactId>mdd-dao</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+		<dependency>
+	            <groupId>com.yonyou.cloud.mdf</groupId>
+	            <artifactId>mdf-common-web</artifactId>
+	            <version>1.0.10-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+            <groupId>com.yonyou.cloud.middleware</groupId>
+            <artifactId>mwclient</artifactId>
+            <type>pom</type>
+        </dependency>
+       <dependency>
+            <groupId>commons-configuration</groupId>
+            <artifactId>commons-configuration</artifactId>
+            <version>1.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.yonyou.metadata</groupId>
+            <artifactId>metadata-api-unified-sdk</artifactId>
+        </dependency>
+        <!--编码规则-->
+        <dependency>
+            <groupId>com.yonyou.iuap</groupId>
+            <artifactId>iuap-billcode-component</artifactId>
+            <version>2.1.0-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.yonyou.iuap</groupId>
+                    <artifactId>iuap-generic</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.yonyou.diwork</groupId>
+                    <artifactId>diwork-iris-dubbo-bridge</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-redis</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.yonyou.ucf.mdf</groupId>
+            <artifactId>yonyou-mdf-core-mdd</artifactId>
+            <version>4.0.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+</project>

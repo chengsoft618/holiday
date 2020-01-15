@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <name>imp-holiday</name>
+    <code>imp-holiday</code>
+	
+    <!-- 依赖产品 -->
+    <dependency>
+    </dependency>
+    <!-- 依赖中间件 -->
+    <middlewares>
+    </middlewares>
+    <!-- sql脚本 -->
+    <dbScripts>
+		<dbScript>
+			<name>默认</name>
+			<code>default</code>
+			<defaultScript>true</defaultScript>
+			<type>init</type>
+			<dbType>mysql</dbType>
+			<dml>mysql/init/baseservice-dml.sql{{#msdb.baseservice}},mysql/init/iuap_cloud_basedoc-dml.sql{{#msdb.iuap_cloud_basedoc}},mysql/init/workbench_system-dml.sql{{#msdb.workbench_system}}|RP</dml>
+		</dbScript>
+		<dbScript>
+			<name>inde</name>
+			<code>inde</code>
+			<type>init</type>
+			<dbType>mysql</dbType>
+			<ddl>mysql/init/shm-ddl.sql{{#msdb.demodb}}</ddl>
+			<dml>mysql/init/shm-dml.sql{{#msdb.demodb}},mysql/init/dispath-dml.sql{{#msdb.demodb}}|RP</dml>
+		</dbScript>
+    </dbScripts>
+    <!-- 配置文件 -->
+    <configUrls>
+    	<!-- 源码 -->
+		<configUrl>
+			<source>src/main/resources/application.properties</source>
+		</configUrl>
+		<configUrl>
+			<source>src/main/resources/sdk.properties</source>
+		</configUrl>
+		<configUrl>
+			<source>src/main/resources/mdd-db.properties</source>
+		</configUrl>
+		<configUrl>
+			<source>src/main/resources/mdd-redis.properties</source>
+		</configUrl>
+		<configUrl>
+			<source>src/main/resources/mdd-dubbo.properties</source>
+		</configUrl>
+		<configUrl>
+			<source>src/main/resources/inotify.properties</source>
+		</configUrl>
+		<!-- war包-->
+<!-- 		<configUrl>
+			<source>WEB-INF/classes/application.properties</source>
+		</configUrl>
+		<configUrl>
+			<source>WEB-INF/classes/sdk.properties</source>
+		</configUrl>
+		<configUrl>
+			<source>WEB-INF/classes/mdd-db.properties</source>
+		</configUrl>
+		<configUrl>
+			<source>WEB-INF/classes/inotify.properties</source>
+		</configUrl> -->
+	</configUrls>
+	<environmentConverters>
+        <!-- 数据源 -->
+        <converter key="msdb.baseservice" value="baseservice" />
+        <converter key="msdb.dispath" value="dispath" />
+        <converter key="msdb.event_center" value="event_center" />
+        <converter key="msdb.iuap_cloud_basedoc" value="iuap_cloud_basedoc" />
+        <converter key="msdb.message" value="message" />
+        <converter key="msdb.prewarning" value="prewarning" />
+        <converter key="msdb.workbench_system" value="workbench_system" />
+        <converter key="msdb.u8cprint" value="u8cprint" />
+    </environmentConverters>
+	
+</project>

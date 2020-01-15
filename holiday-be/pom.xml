@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.yonyou.iuap</groupId>
+        <artifactId>ucf-parent</artifactId>
+        <version>1.0.1-RELEASE</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.yonyou.ucf</groupId>
+    <artifactId>imp-holiday-be</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>imp-holiday-api</module>
+        <module>imp-holiday-app</module>
+        <module>imp-holiday-bootstrap</module>
+        <module>imp-holiday-conf</module>
+        <module>imp-holiday-domain</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <ucf-mdf.version>1.0-SNAPSHOT</ucf-mdf.version>
+        <imeta.groupId>org.imeta</imeta.groupId>
+
+        <imeta.version>2.0.4-SNAPSHOT</imeta.version>
+        <!--<imeta.version>1.0.12-SNAPSHOT</imeta.version>-->
+        <mdd.version>1.0.10-SNAPSHOT</mdd.version>
+        <diwork.version>4.0.5-SNAPSHOT</diwork.version>
+        <mwclient.version>5.2.1-RELEASE</mwclient.version>
+        <iris.version>5.2.1-RELEASE</iris.version>
+
+        <!-- iuap公共组件依赖版本 -->
+        <!--<metadata-api-unified-sdk.version>0.0.2-SNAPSHOT</metadata-api-unified-sdk.version>-->
+        <metadata-api-unified-sdk.version>0.0.10-SNAPSHOT</metadata-api-unified-sdk.version>
+        <iuap-tenant-cas.version>4.0.0-SNAPSHOT</iuap-tenant-cas.version>
+
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- mdd -->
+            <dependency>
+                <groupId>com.yonyou</groupId>
+                <artifactId>mdd-rule-sdk</artifactId>
+                <version>${mdd.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.yonyou</groupId>
+                <artifactId>mdd-uimeta-sdk</artifactId>
+                <version>${mdd.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.yonyou</groupId>
+                <artifactId>mdd-dao</artifactId>
+                <version>${mdd.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.yonyou</groupId>
+                <artifactId>mdd-default-rules</artifactId>
+                <version>${mdd.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>slf4j-log4j12</artifactId>
+                        <groupId>org.slf4j</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>com.yonyou</groupId>
+                <artifactId>mdd-uretail-support</artifactId>
+                <version>${mdd.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.yonyou</groupId>
+                <artifactId>mdd-bpm</artifactId>
+                <version>${mdd.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.yonyou</groupId>
+                <artifactId>mdd-uimeta-design</artifactId>
+                <version>${mdd.version}</version>
+            </dependency>
+
+
+            <!-- diwork -->
+            <dependency>
+                <groupId>com.yonyou.diwork</groupId>
+                <artifactId>diwork-sdk</artifactId>
+                <version>${diwork.version}</version>
+            </dependency>
+            <!-- iuap公共组件依赖 start -->
+            <dependency>
+                <groupId>com.yonyou.cloud.middleware</groupId>
+                <artifactId>mwclient</artifactId>
+                <version>${mwclient.version}</version>
+                <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>com.yonyou.cloud.middleware</groupId>
+                <artifactId>iris-springboot-support</artifactId>
+                <version>${iris.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.yonyou.cloud.middleware</groupId>
+                <artifactId>iris-spring-support</artifactId>
+                <version>${iris.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.yonyou.cloud.middleware</groupId>
+                <artifactId>iris-dubbo-fuse-support</artifactId>
+                <version>${iris.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.yonyou.cloud</groupId>
+                <artifactId>inotify-sdk</artifactId>
+                <version>${iris.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.yonyou.cloud</groupId>
+                <artifactId>auth-sdk-client</artifactId>
+                <version>3.5.2-RELEASE</version>
+            </dependency>
+            <!--新版元数据sdk依赖 -->
+            <dependency>
+                <groupId>com.yonyou.metadata</groupId>
+                <artifactId>metadata-api-unified-sdk</artifactId>
+                <version>${metadata-api-unified-sdk.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.yonyou.iuap</groupId>
+                <artifactId>iuap-tenant-cas</artifactId>
+                <version>${iuap-tenant-cas.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${imeta.groupId}</groupId>
+                <artifactId>imeta-core</artifactId>
+                <version>${imeta.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${imeta.groupId}</groupId>
+                <artifactId>imeta-io</artifactId>
+                <version>${imeta.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${imeta.groupId}</groupId>
+                <artifactId>imeta-spring</artifactId>
+                <version>${imeta.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${imeta.groupId}</groupId>
+                <artifactId>imeta-orm</artifactId>
+                <version>${imeta.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${imeta.groupId}</groupId>
+                <artifactId>imeta-spring-support</artifactId>
+                <version>${imeta.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${imeta.groupId}</groupId>
+                <artifactId>imeta-biz</artifactId>
+                <version>${imeta.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <!-- compiler插件, 设定JDK版本 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.2</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <showWarnings>true</showWarnings>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+

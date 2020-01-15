@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>imp-holiday-be</artifactId>
+        <groupId>com.yonyou.ucf</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>imp-holiday-bootstrap</artifactId>
+    <packaging>war</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <!-- springboot web -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <!-- 模块引用 -->
+        <dependency>
+            <groupId>com.yonyou.ucf</groupId>
+            <artifactId>imp-holiday-api</artifactId>
+                 <version>${ucf-mdf.version}</version> 
+        </dependency>
+        <dependency>
+            <groupId>com.yonyou.cloud</groupId>
+            <artifactId>mdf-scripthost</artifactId>
+            <version>1.0.4-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.eclipsesource.j2v8</groupId>
+                    <artifactId>j2v8_linux_x86_64</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- diwork -->
+        <dependency>
+            <groupId>com.yonyou.diwork</groupId>
+            <artifactId>diwork-sdk</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>commons-beanutils</artifactId>
+                    <groupId>commons-beanutils</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>iuap-utils</artifactId>
+                    <groupId>com.yonyou.iuap</groupId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.yonyou.diwork</groupId>
+                    <artifactId>diwork-framework-exception</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.yonyou.diwork</groupId>
+                    <artifactId>diwork-framework-model</artifactId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>iuap-generic</artifactId>
+                    <groupId>com.yonyou.iuap</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>iuap-bd-translation-sdk</artifactId>
+                    <groupId>com.yonyou.iuap</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>iuap-log-sdk</artifactId>
+                    <groupId>com.yonyou.iuap.log</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.yonyou.diwork</groupId>
+            <artifactId>diwork-framework-model</artifactId>
+                <version>${diwork.version}</version> 
+            <exclusions>
+                <exclusion>
+                    <artifactId>commons-beanutils</artifactId>
+                    <groupId>commons-beanutils</groupId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.yonyou.iuap</groupId>
+                    <artifactId>iuap-log</artifactId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>commons-logging</artifactId>
+                    <groupId>commons-logging</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- iuap公共组件依赖 start -->
+        <dependency>
+            <groupId>com.yonyou.cloud.middleware</groupId>
+            <artifactId>mwclient</artifactId>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>com.yonyou.cloud.middleware</groupId>
+            <artifactId>iris-springboot-support</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.yonyou.cloud.middleware</groupId>
+            <artifactId>iris-spring-support</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.yonyou.cloud.middleware</groupId>
+            <artifactId>iris-dubbo-fuse-support</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.yonyou.cloud</groupId>
+            <artifactId>auth-sdk-client</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.yonyou.iuap</groupId>
+            <artifactId>iuap-tenant-cas</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-redis</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.yonyou.iuap</groupId>
+            <artifactId>hpapaas-graphql</artifactId>
+            <version>5.0.0-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>okhttp</artifactId>
+                    <groupId>com.squareup.okhttp3</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- test -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>20.0</version>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <!-- compiler插件, 设定JDK版本 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.2</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <showWarnings>true</showWarnings>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.yonyou.hpapass</groupId>
+                <artifactId>xmlToDDL</artifactId>
+                <version>5.0.0-SNAPSHOT</version>
+                <executions>
+                    <execution>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    
+                    <sourceDir>${basedir}/../imp-holiday-domain/src/main/resources/uimeta/</sourceDir>
+                    
+                    <destDir>${basedir}/</destDir>
+                    <tenantId>p42gpn5q</tenantId>
+                </configuration>
+            </plugin>
+        </plugins>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.*</include>
+                </includes>
+            </resource>
+        </resources>
+        <finalName>holiday-be</finalName>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>win</id>
+            <dependencies>
+                <dependency>
+                    <groupId>com.eclipsesource.j2v8</groupId>
+                    <artifactId>j2v8_win32_x86_64</artifactId>
+                    <version>5.1.0-SNAPSHOT</version>
+                </dependency>
+            </dependencies>
+
+            <activation>
+                <os>
+                    <family>Windows</family>
+                </os>
+            </activation>
+        </profile>
+
+        <profile>
+            <id>linux</id>
+            <dependencies>
+                <dependency>
+                    <groupId>com.eclipsesource.j2v8</groupId>
+                    <artifactId>j2v8_linux_x86_64</artifactId>
+                    <version>5.1.0-SNAPSHOT</version>
+                </dependency>
+            </dependencies>
+
+            <activation>
+                <os>
+                    <family>linux</family>
+                </os>
+            </activation>
+        </profile>
+
+        <profile>
+            <id>mac</id>
+            <dependencies>
+                <dependency>
+                    <groupId>com.eclipsesource.j2v8</groupId>
+                    <artifactId>j2v8_macos_x86_64</artifactId>
+                    <version>5.1.0-SNAPSHOT</version>
+                </dependency>
+            </dependencies>
+
+            <activation>
+                <os>
+                    <family>mac</family>
+                </os>
+            </activation>
+        </profile>
+    </profiles>
+
+</project>

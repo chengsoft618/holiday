@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://code.alibabatech.com/schema/dubbo
+         http://code.alibabatech.com/schema/dubbo/dubbo.xsd"
+	   default-autowire="byName"
+>
+
+	<import resource="classpath*:spring-sub/applicationContext-*.xml" />
+
+	<!--<bean id="iBillNumberService" class="com.yonyou.iuap.billcode.service.impl.BillNumberService4YxyImpl"></bean>-->
+	<bean id="attrextServiceExtend" class="com.yonyoucloud.userdefine.AttrextServiceExtendPlusImpl"></bean>
+	<!-- 服务名称 -->
+	<dubbo:application name="${dubbo.application}"/>
+	<!-- 使用zookeeper注册中心暴露服务地址 -->
+	<dubbo:registry protocol="${registry-protocol}" address="172.20.56.219:2181"/>
+	<!-- 用dubbo协议在20880端口暴露服务 -->
+	<dubbo:protocol name="dubbo" port="${dubbo-protocol}"/>
+
+	<!-- 启动时不检查消费者 -->
+	<dubbo:consumer check="false" timeout="1000" retries="0" lazy="true"/>
+
+	<dubbo:provider timeout="10000" threadpool="fixed" threads="100" accepts="1000" filter="dubboContextFilter" payload="-1"/>
+	<!-- 向ui模板服务提供展示的表单 -->
+	<dubbo:service retries="0" interface="com.yonyou.ucf.mdf.api.bill.MdfBillMetaQueryService"
+				   ref="mdfBillMetaQueryService" group="${dubbo.group}" timeout="10000"/>
+	<!-- ui模板服务注册 -->
+	<dubbo:service retries="0" interface="com.yonyou.ucf.mdf.api.dubbo.common.MdfCommonDubboService"
+				   ref="mdfCommonDubboService" group="${dubbo.group}" timeout="10000"/>
+
+	<dubbo:service retries="0" interface="com.yonyou.ucf.mdd.common.interfaces.rpc.ICommonQueryRPCService"
+				   ref="mddCommonQueryService" group="${dubbo.group}" timeout="10000"/>
+	<dubbo:service retries="0" interface="com.yonyou.iuap.billcode.service.IBillNumberService"
+				   ref="billNumberService4YxyImpl" group="${dubbo.group}" timeout="10000"/>
+	<dubbo:service retries="0" interface="com.yonyoucloud.userdefine.api.IAttrextServiceExtend"
+				   ref="attrextServiceExtend" group="${dubbo.group}" timeout="10000"/>
+</beans>

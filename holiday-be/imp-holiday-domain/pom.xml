@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>imp-holiday-be</artifactId>
+        <groupId>com.yonyou.ucf</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>imp-holiday-domain</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.yonyou</groupId>
+            <artifactId>mdd-dao</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.yonyou</groupId>
+            <artifactId>mdd-uimeta-design</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.yonyou.metadata</groupId>
+            <artifactId>metadata-api-unified-sdk</artifactId>
+        </dependency>
+
+        <!-- 营销元数据依赖 -->
+        <dependency>
+            <groupId>com.yonyoucloud</groupId>
+            <artifactId>upc-meta-resources</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yonyoucloud</groupId>
+            <artifactId>uretail-base-meta</artifactId>
+            <version>2.0.0-SNAPSHOT</version>
+        </dependency>
+
+        <!-- 基础数据元数据依赖 -->
+        <dependency>
+            <groupId>com.yonyou.ucf</groupId>
+            <artifactId>basedoc-meta</artifactId>
+            <version>1.0.2-SNAPSHOT</version>
+            <type>pom</type>
+        </dependency>
+
+        <dependency>
+            <groupId>com.yonyou.iuap</groupId>
+            <artifactId>iuap-billcode-component</artifactId>
+            <version>2.1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yonyou.iuap</groupId>
+            <artifactId>iuap-lock</artifactId>
+            <version>3.3.0-RELEASE</version>
+        </dependency>
+        <!--接口-->
+        <dependency>
+            <groupId>com.yonyoucloud</groupId>
+            <artifactId>userdefine-mdd</artifactId>
+            <version>3.2.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yonyoucloud</groupId>
+            <artifactId>userdefine-api</artifactId>
+            <version>3.2.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yonyoucloud</groupId>
+            <artifactId>userdef-mdd-tools</artifactId>
+            <version>3.2.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+</project>
